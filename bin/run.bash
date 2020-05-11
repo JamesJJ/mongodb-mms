@@ -21,5 +21,5 @@ dpkg -i "$TF" || exit 2
 
 umask 027
 
-exec gosu "$MMSUSER:$MMSUSER" /opt/mongodb-mms-automation/bin/mongodb-mms-automation-agent -f /etc/mongodb-mms/automation-agent.config -pidfilepath "$MMSPID"
+exec gosu "$MMSUSER:$MMSUSER" /opt/mongodb-mms-automation/bin/mongodb-mms-automation-agent -f "${MMS_CONFIG_FILE:-/etc/mongodb-mms/automation-agent.config}" -pidfilepath "$MMSPID"
 
